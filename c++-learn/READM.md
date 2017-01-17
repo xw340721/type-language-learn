@@ -20,6 +20,7 @@ g++ spiffy.cxx //同上
 g++ spiffy.cxx -lg++ //同上
 g++ spiffy.cxx precious.c 
 g++ spiffy.cxx precious.o
+
 ```
 
 > g++编译器(windows)
@@ -29,6 +30,7 @@ g++ spiffy.cpp //同上
 g++ spiffy.cpp -lg++ //同上
 g++ spiffy.cpp precious.c 
 g++ spiffy.cpp precious.o
+
 ```
 
 小技巧
@@ -47,7 +49,6 @@ int main{
 }
 
 ```
-
 
 ```c++
 
@@ -109,6 +110,12 @@ int main(){
 ```
 
 
+### cout cin配置
+
+
+* cout << fixed 输出浮动
+* cout.precious(int number) 输出小数位数为number 
+
 ### 指针学习
 
 
@@ -139,19 +146,35 @@ int *a;
 //c++
 int* a = new int;//typeName * pointer_name = new typeName;
 int* a  = (int *) malloc(sizeof(int));
-
+ 
 //c
-
 int *a = 10 ;
+```
 
+### const int * a 和 int * const a 区别
 
-## const int * a 和 int * const a 区别
+* const int * a 说明其指向的值是不能修改 但是其自己的指针是可以修改
 
-在c++中const int * a  可以赋值给非const 类型
+* int * const a 说明其指针地址不能改变
 
 ```c++
 
 int a = 10;
-const int b = 20;
-const int *pointer  = &a; //代表这个pointer指针为指定a的地址 = int * const pointer
-const int *pointer2 = &b; //代表指向一个为const int的对象的指针 = const int * pointer
+const int *pointer  = &a; //代表这个pointer所指向的地址的值不可以改变
+
+```
+
+注意:
+如果数据本身并不是指针,则可以将const数据或非const数据的地址复制给指向const的指针,而非const数据的地址只能赋值给非const指针 
+
+
+
+
+### 按值传递＆引用传递
+
+
+* 按值传递代表传递的时候将参数和传入的值进行赋值(俩边),传入的如果是函数也将函数运行完毕将值传递给参数
+* 引用传递表示将传递的参数但成地址传入函数内部
+
+### 函数指针
+

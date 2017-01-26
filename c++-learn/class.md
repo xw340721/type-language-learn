@@ -104,10 +104,10 @@ class Stock{
 
 //Stock.cpp
 
-void Stock::show() const {
+void Stock::show() const { //Stock::funcname
 
 }
 ```
 原因:
-* 由于class调用的是同方法不同对象
+* 由于class调用的是同方法不同对象,其实是 o1.xx 
 
